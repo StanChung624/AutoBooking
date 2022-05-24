@@ -13,11 +13,6 @@ INFO = {    "NEXT_MONTH": True, # True: next month // False: this month
             "PEOPLE"    : "2",             # reservation seat(s)
             "CITY"      : "新竹縣"           # restuarant location
         }
-# timer : when to start
-# -----------------------------------------------------------------------------#
-from TimeControl import TimeControl
-TimeControl.start_when("2022-05-25_00:00")
-
 # script start
 # -----------------------------------------------------------------------------#
-Scripts.Sunrise(INFO)
+Scripts.Sunrise(INFO, start_when="2022-05-24_10:32")

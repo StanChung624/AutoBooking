@@ -228,7 +228,7 @@ class Scripts:
         def __init__(self, INFO:dict={}, start_when=False):
             # For single reservation time:
             self.INFO = INFO
-            self.check_INFO()
+            self.check_data()
             if start_when:
                 TimeControl.start_when(start_when) 
             if isinstance(INFO["TIME"], str):
@@ -244,13 +244,23 @@ class Scripts:
                     except:
                         continue
 
-        def check_INFO(self):
-            for key in self.REQUIRED_INFO.keys():
-                if key not in self.INFO:
-                    print("missing: ", key)
-                    print("for example: ", self.REQUIRED_INFO[key])
-                    self.INFO[key] = str(input("please insert manually:\n"))
-            print(self.INFO)
+        def check_data(self):
+            def check_INFO():
+                for key in self.REQUIRED_INFO.keys():
+                    if key not in self.INFO:
+                        print("missing: ", key)
+                        print("for example: ", self.REQUIRED_INFO[key])
+                        self.INFO[key] = str(input("please insert manually:\n"))
+                print(self.INFO)
+
+            def check_url():
+                if self.INFO['BRANCH'] not in self.BRANCH_URL:
+                    print('current branch url is not in the database, please enter manually:')
+                    print('for example: https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS')
+                    self.BRANCH_URL[self.INFO['BRANCH']] = str(input(':\n'))
+
+            check_INFO()
+            check_url()
 
         def run(self):
             INFO = self.INFO
@@ -300,7 +310,7 @@ class Scripts:
         def __init__(self, INFO:dict={}, start_when=False):
             # For single reservation time:
             self.INFO = INFO
-            self.check_INFO()
+            self.check_data()
             if start_when:
                 TimeControl.start_when(start_when) 
             if isinstance(INFO["TIME"], str):
@@ -316,14 +326,24 @@ class Scripts:
                     except:
                         print('current time ', INFO['TIME'], ' is not available.')
                         continue
+        
+        def check_data(self):
+            def check_INFO():
+                for key in self.REQUIRED_INFO.keys():
+                    if key not in self.INFO:
+                        print("missing: ", key)
+                        print("for example: ", self.REQUIRED_INFO[key])
+                        self.INFO[key] = str(input("please insert manually:\n"))
+                print(self.INFO)
 
-        def check_INFO(self):
-            for key in self.REQUIRED_INFO.keys():
-                if key not in self.INFO:
-                    print("missing: ", key)
-                    print("for example: ", self.REQUIRED_INFO[key])
-                    self.INFO[key] = str(input("please insert manually:\n"))
-            print(self.INFO)
+            def check_url():
+                if self.INFO['BRANCH'] not in self.BRANCH_URL:
+                    print('current branch url is not in the database, please enter manually:')
+                    print('for example: https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS')
+                    self.BRANCH_URL[self.INFO['BRANCH']] = str(input(':\n'))
+
+            check_INFO()
+            check_url()
 
         def run(self):
             INFO = self.INFO
@@ -376,7 +396,7 @@ class Scripts:
         def __init__(self, INFO:dict={}, start_when=False):
             # For single reservation time:
             self.INFO = INFO
-            self.check_INFO()
+            self.check_data()
             if start_when:
                 TimeControl.start_when(start_when) 
             if isinstance(INFO["TIME"], str):
@@ -392,13 +412,23 @@ class Scripts:
                     except:
                         continue
 
-        def check_INFO(self):
-            for key in self.REQUIRED_INFO.keys():
-                if key not in self.INFO:
-                    print("missing: ", key)
-                    print("for example: ", self.REQUIRED_INFO[key])
-                    self.INFO[key] = str(input("please insert manually:\n"))
-            print(self.INFO)
+        def check_data(self):
+            def check_INFO():
+                for key in self.REQUIRED_INFO.keys():
+                    if key not in self.INFO:
+                        print("missing: ", key)
+                        print("for example: ", self.REQUIRED_INFO[key])
+                        self.INFO[key] = str(input("please insert manually:\n"))
+                print(self.INFO)
+
+            def check_url():
+                if self.INFO['BRANCH'] not in self.BRANCH_URL:
+                    print('current branch url is not in the database, please enter manually:')
+                    print('for example: https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS')
+                    self.BRANCH_URL[self.INFO['BRANCH']] = str(input(':\n'))
+
+            check_INFO()
+            check_url()
 
         def run(self):
             INFO = self.INFO

@@ -13,11 +13,6 @@ INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
             "PEOPLE"    : "2",          # reservation seat(s)
             "CITY"      : "新竹市"      # restuarant location
         }
-# timer : when to start
-# -----------------------------------------------------------------------------#
-from TimeControl import TimeControl
-TimeControl.start_when("2022-05-24_10:32")
-
 # script start
 # -----------------------------------------------------------------------------#
-Scripts.Paradise(INFO)
+Scripts.Paradise(INFO, start_when="2022-05-24_10:32")
