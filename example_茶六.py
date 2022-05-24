@@ -7,8 +7,8 @@ from ReservationScripts.ReservationScript import Scripts
 # -----------------------------------------------------------------------------#
 INFO = {    "DATE"      : "2022-06-22",
             "TIME"      : "11-45",
-            "NAME"      : "鍾智宜",
-            "PHONE"     : "0975723986",
+            "NAME"      : "金城武",
+            "PHONE"     : "090000000",
             "BRANCH"    : "公益店"
         }
 
