@@ -10,10 +10,10 @@ class TimeControl_printer:
         current_time = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
         self.called += 1
         if self.called == 1:
-            self.length = len(current_time+'>> wait until >>'+start_time)
+            self.length = len(current_time+' >> wait until >> '+start_time)
             print(current_time+' >> wait until >>'+start_time, end='')
         elif self.called > 1:
-            print(self.length * "\r" + current_time+'>> wait until >>'+start_time, end='')
+            print(self.length * "\r" + current_time+' >> wait until >> '+start_time, end='')
 
 class TimeControl:
     def start_when(start_time):
@@ -32,7 +32,8 @@ class TimeControl:
         while not proceed:
             proceed =  datetime.now() > pd.to_datetime(start_time, format='%Y-%m-%d_%H:%M')            
             if proceed:
-                print('go')
+                pass
             else:
                 printer.print_wait(start_time)
                 sleep(1)
+        print('\n<start>')

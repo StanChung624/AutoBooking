@@ -2,7 +2,6 @@
 # example:      茶六
 # -----------------------------------------------------------------------------#
 from ReservationScripts.ReservationScript import Scripts
-
 # input area
 # -----------------------------------------------------------------------------#
 INFO = {    "DATE"      : "2022-06-22",
@@ -12,11 +11,6 @@ INFO = {    "DATE"      : "2022-06-22",
             "BRANCH"    : "公益店"
         }
 
-# timer : when to start
-# -----------------------------------------------------------------------------#
-from TimeControl import TimeControl
-TimeControl.start_when("2022-05-24_10:19")
-
 # script start
 # -----------------------------------------------------------------------------#
-Scripts.Tea6(INFO)
+Scripts.Tea6(INFO, start_when="2022-05-24_15:37")

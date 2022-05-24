@@ -36,28 +36,6 @@ class DriverSetup(Chrome):
         print('** Auto fill-in completed. Press Enter to Exit...**')    
         input('*'*51+'\n')
 
-    def monthDays(self, startYYYmm):
-        startYYY = startYYYmm[:3]
-        startmm = startYYYmm[3:]
-        if startYYY in ['113','117','121']:
-            days = {['01','03','05','07','08','10','12']:'31',
-                    ['04','06','09','11']:'30',
-                    '02':'29'}
-        else:
-            days = {['01','03','05','07','08','10','12']:'31',
-                    ['04','06','09','11']:'30',
-                    '02':'28'}
-        if int(startmm) == 12:
-            endYYY = str(int(startYYY)+1)
-            endmm = '01'
-        else:
-            endYYY = startYYY
-            endmm = str(int(startmm)) + 1
-        if len(endmm) == 1:
-            endmm = '0' + endmm
-
-        return [endYYY, endmm, days[endmm]]
-
     def send_ScrollDown(self, times:int=1):
         for i in range(times):
             body = self.find_element_by_css_selector('body')

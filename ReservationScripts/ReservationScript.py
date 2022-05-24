@@ -1,14 +1,26 @@
 from DriverSetup import *
-class Scripts:    
+from TimeControl import TimeControl
+class Scripts:
     # -----------------------------------------------------------------------------#
     #       旭集
     # -----------------------------------------------------------------------------#
     class Sunrise():
+        REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
+                            "DATE"      : "23",         # Date-day
+                            "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
+                            "USER_NAME" : "0912345678", # user name
+                            "PASSWORDS" : "abc12345",   # password
+                            "PEOPLE"    : "2",          # reservation seat(s)
+                            "CITY"      : "新竹市"      # restuarant location
+                        }
         INFO = None
         URL = "https://www.feastogether.com.tw/booking/10"
-        def __init__(self, INFO):
+        def __init__(self, INFO:dict={}, start_when=False):
             # For single reservation time:
             self.INFO = INFO
+            self.check_INFO()
+            if start_when:
+                TimeControl.start_when(start_when)                
             if isinstance(INFO["TIME"], str):
                 self.run()
             # For multiple reservation time:
@@ -20,7 +32,20 @@ class Scripts:
                         self.run()
                         return
                     except:
-                        continue            
+                        continue
+
+        def check_INFO(self):
+            for key in self.REQUIRED_INFO.keys():
+                if key not in self.INFO:
+                    print("missing: ", key)
+                    print("for example: ", self.REQUIRED_INFO[key])
+                    self.INFO[key] = str(input("please insert manually:\n"))
+                    # for the bool. value
+                    if key == "NEXT_MONTH" and self.INFO["NEXT_MONTH"] == "True":
+                        self.INFO["NEXT_MONTH"] = True
+                    elif key == "NEXT_MONTH" and self.INFO["NEXT_MONTH"] == "False":
+                        self.INFO["NEXT_MONTH"] = False
+
         def run(self):
             INFO = self.INFO
             # script start
@@ -83,11 +108,23 @@ class Scripts:
     #       饗食天堂
     # -----------------------------------------------------------------------------#
     class Paradise(Sunrise):
+        REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
+                    "DATE"      : "23",         # Date-day
+                    "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
+                    "USER_NAME" : "0912345678", # user name
+                    "PASSWORDS" : "abc12345",   # password
+                    "PEOPLE"    : "2",          # reservation seat(s)
+                    "CITY"      : "新竹市"      # restuarant location
+                }
         INFO = None
         URL = "https://www.feastogether.com.tw/booking/1"
-        def __init__(self, INFO):
+
+        def __init__(self, INFO:dict={}, start_when=False):
             # For single reservation time:
             self.INFO = INFO
+            self.check_INFO()
+            if start_when:
+                TimeControl.start_when(start_when) 
             if isinstance(INFO["TIME"], str):
                 self.run()
             # For multiple reservation time:
@@ -100,6 +137,19 @@ class Scripts:
                         return
                     except:
                         continue
+
+        def check_INFO(self):
+            for key in self.REQUIRED_INFO.keys():
+                if key not in self.INFO:
+                    print("missing: ", key)
+                    print("for example: ", self.REQUIRED_INFO[key])
+                    self.INFO[key] = str(input("please insert manually:\n"))
+                    # for the bool. value
+                    if key == "NEXT_MONTH" and self.INFO["NEXT_MONTH"] == "True":
+                        self.INFO["NEXT_MONTH"] = True
+                    elif key == "NEXT_MONTH" and self.INFO["NEXT_MONTH"] == "False":
+                        self.INFO["NEXT_MONTH"] = False
+
         def run(self):
             INFO = self.INFO
             # script start
@@ -164,22 +214,39 @@ class Scripts:
     # -----------------------------------------------------------------------------#
     class Tea6():
         INFO = None
-        def __init__(self, INFO:dict):
+        REQUIRED_INFO =  {   "DATE"      : "2022-06-22",
+                    "TIME"      : "11-45",
+                    "NAME"      : "金城武",
+                    "PHONE"     : "090000000",
+                    "BRANCH"    : "公益店"
+                }
+        def __init__(self, INFO:dict={}, start_when=False):
             # For single reservation time:
             self.INFO = INFO
-            if isinstance(INFO.TIME, str):
+            self.check_INFO()
+            if start_when:
+                TimeControl.start_when(start_when) 
+            if isinstance(INFO["TIME"], str):
                 self.run()
             # For multiple reservation time:
-            elif isinstance(INFO.TIME, list):
-                TIME_LIST = INFO.TIME
+            elif isinstance(INFO["TIME"], list):
+                TIME_LIST = INFO["TIME"]
                 for i in range(len(TIME_LIST)):
-                    INFO.TIME = TIME_LIST[i]
+                    INFO["TIME"] = TIME_LIST[i]
                     try:
                         self.run()
                         return
                     except:
                         continue
-            
+
+        def check_INFO(self):
+            for key in self.REQUIRED_INFO.keys():
+                if key not in self.INFO:
+                    print("missing: ", key)
+                    print("for example: ", self.REQUIRED_INFO[key])
+                    self.INFO[key] = str(input("please insert manually:\n"))
+            print(self.INFO)
+
         def run(self):
             INFO = self.INFO
             # script start
@@ -210,3 +277,4 @@ class Scripts:
             driver.find_element_then_click(By.XPATH, "//button[@class='sc-ieecCq eZhyRr']")
 
             driver.endDriver()
+
