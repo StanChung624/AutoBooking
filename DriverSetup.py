@@ -5,8 +5,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
-from setuptools import find_namespace_packages
-
 #### importing class "By" and "Select" ####
 class DriverUtility():
     class By(By):
