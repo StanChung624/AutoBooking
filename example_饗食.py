@@ -13,7 +13,6 @@ INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
             "PEOPLE"    : "2",          # reservation seat(s)
             "CITY"      : "新竹市"      # restuarant location
         }
-
 # timer : when to start
 # -----------------------------------------------------------------------------#
 from TimeControl import TimeControl
