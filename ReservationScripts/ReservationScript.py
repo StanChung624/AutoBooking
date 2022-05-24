@@ -156,7 +156,7 @@ class Scripts:
             sleep(0.5)
             driver.send_ScrollDown(4)
             sleep(0.5)
-            #driver.find_element_then_click(DriverUtility.By.XPATH, "//button[@type='button']", loop_max=30)
+            driver.find_element_then_click(DriverUtility.By.XPATH, "//button[@type='button']", loop_max=30)
             driver.endDriver()
             
     # -----------------------------------------------------------------------------#
