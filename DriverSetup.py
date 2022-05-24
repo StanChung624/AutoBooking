@@ -71,36 +71,37 @@ class DriverSetup(Chrome):
         body = self.find_element_by_css_selector('body')
         body.send_keys(Keys.ENTER)
 
-    def loop_for_element_click(self, by:By, value:str, sleep_time:float = 0.5, loop_max:int = 10):
+    def find_element_then_click(self, by:By, value:str, sleep_time:float = 0.5, loop_max:int = 10):
         loop_index = 0
         looper = True
+        # attemp-session
+        try:
+            self.find_element(by=by, value=value).click()
+            looper = False
+        except:
+            try:
+                sleep(0.5)
+                element = self.find_element(by=by, value=value)
+                self.execute_script("arguments[0].click();", element)
+                looper = False
+            except:
+                pass        
+        # loop-session
         while loop_index != loop_max and looper:
             loop_index += 1
             if loop_index >= 2:
                 self.send_ScrollDown()
             try:
-                self.find_element(by=by, value=value).click()
+                element = self.find_element(by=by, value=value)
+                self.execute_script("arguments[0].click();", element)
                 looper = False
             except:
                 sleep(sleep_time)
                 self.send_ScrollDown()
-                self.find_element_then_click(by=by, value=value)
+                self.find_element(by=by, value=value).click()
                 looper = False
             finally:
                 continue
 
         if looper:
             self.find_element(by=by, value=value).click()
-
-    def find_element_then_click(self, by:By, value:str):
-        try:
-            element = self.find_element(by=by, value=value)
-        except:
-            sleep(0.5)
-            element = self.find_element(by=by, value=value)
-        
-        try:
-            element.click()
-        except:
-            sleep(0.5)
-            element.click()
