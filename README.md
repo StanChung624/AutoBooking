@@ -8,7 +8,7 @@
 
 # How to Use
 ## Import specific restuarant crawler script
-'from ReservationScripts.Scripts import InParadise' the __InParadise__ are the crawler script for corresponding restuarant.
+`from ReservationScripts.Scripts import InParadise` the __InParadise__ are the crawler script for corresponding restuarant.
 ## Scripts input
 All scripts takes 2 input args:
 * INFO:  a dict object containing required info for chosen restuarant. If there is item missing, the program will ask for input.
