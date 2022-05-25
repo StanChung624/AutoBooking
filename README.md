@@ -1,10 +1,10 @@
 # Requirement
 ## for release ver. user (yet to be published)
-    * chromedriver ("https://chromedriver.chromium.org/")
+* chromedriver ("https://chromedriver.chromium.org/")
 ## for sourcecode user:
-    * chromedriver ("https://chromedriver.chromium.org/")
-    * selenium
-    * pandas
+* chromedriver ("https://chromedriver.chromium.org/")
+* selenium
+* pandas
 
 # How to Use
 ## Import specific restuarant crawler script
