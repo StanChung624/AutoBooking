@@ -22,7 +22,7 @@ class DriverSetup(Chrome):
             ::
                 driver = DriverSetup()
 
-        :rtype: WebElement
+        :rtype: Driver
     """
     def __init__(self):
         options = Options()
@@ -31,8 +31,8 @@ class DriverSetup(Chrome):
 
     def endDriver(self):
         print('*'*51)
-        print('** Auto fill-in completed. Press Enter to Exit...**')    
-        input('*'*51+'\n')
+        print('** Auto fill-in completed. **')    
+        print('*'*51+'\n')
 
     def send_ScrollDown(self, times:int=1):
         for i in range(times):

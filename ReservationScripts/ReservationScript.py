@@ -1,10 +1,54 @@
 from DriverSetup import *
 from TimeControl import TimeControl
+
+# -----------------------------------------------------------------------------#
+# default scripts luancher
+# -----------------------------------------------------------------------------#
+from time import time
+class Scripts_default:
+    def luancher(self, INFO, start_when):
+        # INFO checked
+        self.INFO = INFO
+        self.check_data()
+
+        # wait until given start_when
+        if start_when:
+            TimeControl.start_when(start_when)
+
+        # timer - start
+        tic = time()
+
+        # For single reservation time:        
+        if isinstance(INFO["TIME"], str):
+            self.run()
+
+        # For multiple reservation time:
+        elif isinstance(INFO["TIME"], list):
+            TIME_LIST = INFO["TIME"]
+            for i in range(len(TIME_LIST)):
+                INFO["TIME"] = TIME_LIST[i]
+                try:
+                    self.run()
+                    return
+                except:
+                    continue
+        
+        elapse = time() - tic
+        print("elapse time: ", elapse, ' (sec.)')
+# -----------------------------------------------------------------------------#
+# Scripts starts
+# -----------------------------------------------------------------------------#
 class Scripts:
-    # -----------------------------------------------------------------------------#
-    #       旭集
-    # -----------------------------------------------------------------------------#
-    class Sunrise():
+
+    class Sunrise(Scripts_default):
+        """
+            旭集
+                    tested on chrome v.100 / at 2022.05.25
+        Auto run with set scripts.
+        :args:
+            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
+            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        """
         REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
                             "DATE"      : "23",         # Date-day
                             "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
@@ -15,26 +59,11 @@ class Scripts:
                         }
         INFO = None
         URL = "https://www.feastogether.com.tw/booking/10"
-        def __init__(self, INFO:dict={}, start_when=False):
-            # For single reservation time:
-            self.INFO = INFO
-            self.check_INFO()
-            if start_when:
-                TimeControl.start_when(start_when)                
-            if isinstance(INFO["TIME"], str):
-                self.run()
-            # For multiple reservation time:
-            elif isinstance(INFO["TIME"], list):
-                TIME_LIST = INFO["TIME"]
-                for i in range(len(TIME_LIST)):
-                    INFO["TIME"] = TIME_LIST[i]
-                    try:
-                        self.run()
-                        return
-                    except:
-                        continue
 
-        def check_INFO(self):
+        def __init__(self, INFO:dict={}, start_when=False):
+            self.luancher(INFO, start_when)
+
+        def check_data(self):
             for key in self.REQUIRED_INFO.keys():
                 if key not in self.INFO:
                     print("missing: ", key)
@@ -104,10 +133,16 @@ class Scripts:
             sleep(0.5)
             driver.find_element_then_click(DriverUtility.By.XPATH, "//button[@type='button']", loop_max=30)
             driver.endDriver()
-    # -----------------------------------------------------------------------------#
-    #       饗食天堂
-    # -----------------------------------------------------------------------------#
-    class Paradise(Sunrise):
+    
+    class Paradise(Scripts_default):
+        """
+            饗食天堂
+                    tested on chrome v.100 / at 2022.05.25
+        Auto run with set scripts.
+        :args:
+            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
+            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        """
         REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
                     "DATE"      : "23",         # Date-day
                     "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
@@ -120,25 +155,9 @@ class Scripts:
         URL = "https://www.feastogether.com.tw/booking/1"
 
         def __init__(self, INFO:dict={}, start_when=False):
-            # For single reservation time:
-            self.INFO = INFO
-            self.check_INFO()
-            if start_when:
-                TimeControl.start_when(start_when) 
-            if isinstance(INFO["TIME"], str):
-                self.run()
-            # For multiple reservation time:
-            elif isinstance(INFO["TIME"], list):
-                TIME_LIST = INFO["TIME"]
-                for i in range(len(TIME_LIST)):
-                    INFO["TIME"] = TIME_LIST[i]
-                    try:
-                        self.run()
-                        return
-                    except:
-                        continue
+            self.luancher(INFO, start_when)
 
-        def check_INFO(self):
+        def check_data(self):
             for key in self.REQUIRED_INFO.keys():
                 if key not in self.INFO:
                     print("missing: ", key)
@@ -208,11 +227,16 @@ class Scripts:
             sleep(0.5)
             driver.find_element_then_click(DriverUtility.By.XPATH, "//button[@type='button']", loop_max=30)
             driver.endDriver()
-            
-    # -----------------------------------------------------------------------------#
-    #       茶六
-    # -----------------------------------------------------------------------------#
-    class Tea6():
+        
+    class Tea6(Scripts_default):
+        """
+            茶六
+                    tested on chrome v.100 / at 2022.05.25
+        Auto run with set scripts.
+        :args:
+            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
+            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        """
         INFO = None
         BRANCH_URL =   {   "公益店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LUYUEIOYwa7GCUpAFWA",
                                 "朝富店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-L93VSXuz8o86ahWDRg1",
@@ -226,23 +250,7 @@ class Scripts:
                             "BRANCH"    : "公益店"
                         }
         def __init__(self, INFO:dict={}, start_when=False):
-            # For single reservation time:
-            self.INFO = INFO
-            self.check_data()
-            if start_when:
-                TimeControl.start_when(start_when) 
-            if isinstance(INFO["TIME"], str):
-                self.run()
-            # For multiple reservation time:
-            elif isinstance(INFO["TIME"], list):
-                TIME_LIST = INFO["TIME"]
-                for i in range(len(TIME_LIST)):
-                    INFO["TIME"] = TIME_LIST[i]
-                    try:
-                        self.run()
-                        return
-                    except:
-                        continue
+            self.luancher(INFO, start_when)
 
         def check_data(self):
             def check_INFO():
@@ -251,7 +259,6 @@ class Scripts:
                         print("missing: ", key)
                         print("for example: ", self.REQUIRED_INFO[key])
                         self.INFO[key] = str(input("please insert manually:\n"))
-                print(self.INFO)
 
             def check_url():
                 if self.INFO['BRANCH'] not in self.BRANCH_URL:
@@ -291,10 +298,15 @@ class Scripts:
 
             driver.endDriver()
 
-    class SyaBuYo():
-    # -----------------------------------------------------------------------------#
-    #       涮奶葉
-    # -----------------------------------------------------------------------------#
+    class SyaBuYo(Scripts_default):
+        """
+            涮乃葉
+                    tested on chrome v.100 / at 2022.05.25
+        Auto run with set scripts.
+        :args:
+            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
+            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        """
         INFO = None
         BRANCH_URL =   {   "新竹SOGO巨城店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS", 
                        }
@@ -308,24 +320,7 @@ class Scripts:
                         }
 
         def __init__(self, INFO:dict={}, start_when=False):
-            # For single reservation time:
-            self.INFO = INFO
-            self.check_data()
-            if start_when:
-                TimeControl.start_when(start_when) 
-            if isinstance(INFO["TIME"], str):
-                self.run()
-            # For multiple reservation time:
-            elif isinstance(INFO["TIME"], list):
-                TIME_LIST = INFO["TIME"]
-                for i in range(len(TIME_LIST)):
-                    INFO["TIME"] = TIME_LIST[i]
-                    try:
-                        self.run()
-                        return
-                    except:
-                        print('current time ', INFO['TIME'], ' is not available.')
-                        continue
+            self.luancher(INFO, start_when)
         
         def check_data(self):
             def check_INFO():
@@ -334,7 +329,6 @@ class Scripts:
                         print("missing: ", key)
                         print("for example: ", self.REQUIRED_INFO[key])
                         self.INFO[key] = str(input("please insert manually:\n"))
-                print(self.INFO)
 
             def check_url():
                 if self.INFO['BRANCH'] not in self.BRANCH_URL:
@@ -377,10 +371,15 @@ class Scripts:
 
             driver.endDriver()
 
-    class MoMoParadise():
-    # -----------------------------------------------------------------------------#
-    #       Mo-Mo Paradise
-    # -----------------------------------------------------------------------------#
+    class MoMoParadise(Scripts_default):
+        """
+            Mo-Mo Paradise
+                    tested on chrome v.100 / at 2022.05.25
+        Auto run with set scripts.
+        :args:
+            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
+            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        """
         INFO = None
         BRANCH_URL =   {   "新竹巨城牧場": "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LHHPxqdZqtKMq-y25le", 
                        }
@@ -394,23 +393,7 @@ class Scripts:
                         }
 
         def __init__(self, INFO:dict={}, start_when=False):
-            # For single reservation time:
-            self.INFO = INFO
-            self.check_data()
-            if start_when:
-                TimeControl.start_when(start_when) 
-            if isinstance(INFO["TIME"], str):
-                self.run()
-            # For multiple reservation time:
-            elif isinstance(INFO["TIME"], list):
-                TIME_LIST = INFO["TIME"]
-                for i in range(len(TIME_LIST)):
-                    INFO["TIME"] = TIME_LIST[i]
-                    try:
-                        self.run()
-                        return
-                    except:
-                        continue
+            self.luancher(INFO, start_when)
 
         def check_data(self):
             def check_INFO():

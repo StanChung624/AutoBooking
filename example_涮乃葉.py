@@ -6,9 +6,9 @@ from ReservationScripts.ReservationScript import Scripts
 # -----------------------------------------------------------------------------#
 INFO = {    "DATE"      : "2022-06-22",
             "TIME"      : "17-15",
-            "NAME"      : "鍾智宜",
+            "NAME"      : "金城武",
             "PEOPLE"    : "2",
-            "PHONE"     : "0975723986",
+            "PHONE"     : "0900000000",
             "BRANCH"    : "新竹SOGO巨城店",
         }
 
