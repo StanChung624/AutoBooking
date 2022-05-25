@@ -7,7 +7,7 @@ from ReservationScripts.Scripts import InParadise
 # -----------------------------------------------------------------------------#
 INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
             "DATE"      : "23",         # Date-day
-            "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
+            "TIME"      : ["17:30", "18:00"],      # time: 17:00/17:30/18:00/18:30/19:00
             "USER_NAME" : "0900000000", # user name
             "PASSWORDS" : "00000000",   # password
             "PEOPLE"    : "2",          # reservation seat(s)
