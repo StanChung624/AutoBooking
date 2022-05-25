@@ -86,30 +86,30 @@ class Scripts:
 
             # click pop-up notification
             sleep(0.5)
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//div[@id='modal-news']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]")
+            driver.find_element_then_click(By.XPATH, "//div[@id='modal-news']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]")
 
             # fill-in imformation
-            driver.find_element_then_click(DriverUtility.By.ID, "select_area")
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//li[text()='"+INFO["CITY"]+"']")
-            driver.find_element(DriverUtility.By.ID, "book_people").send_keys(INFO["PEOPLE"])
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//input[contains(@class,'flatpickr flatpickr-input')]")
+            driver.find_element_then_click(By.ID, "select_area")
+            driver.find_element_then_click(By.XPATH, "//li[text()='"+INFO["CITY"]+"']")
+            driver.find_element(By.ID, "book_people").send_keys(INFO["PEOPLE"])
+            driver.find_element_then_click(By.XPATH, "//input[contains(@class,'flatpickr flatpickr-input')]")
             sleep(0.5)
             if INFO["NEXT_MONTH"]:
-                driver.find_element_then_click(DriverUtility.By.CLASS_NAME, "flatpickr-next-month")
+                driver.find_element_then_click(By.CLASS_NAME, "flatpickr-next-month")
             sleep(0.5)
-            driver.find_element_then_click(DriverUtility.By.XPATH, "(//span[text()='"+INFO["DATE"]+"'])[2]")
-            driver.find_element_then_click(DriverUtility.By.CLASS_NAME, "wk-type-dinner")
+            driver.find_element_then_click(By.XPATH, "(//span[text()='"+INFO["DATE"]+"'])[2]")
+            driver.find_element_then_click(By.CLASS_NAME, "wk-type-dinner")
 
             # bottom choose store
             driver.send_ScrollDown()
             driver.send_ScrollDown()
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//tr[@class='wk-book-stores list-tr']//td[1]")
+            driver.find_element_then_click(By.XPATH, "//tr[@class='wk-book-stores list-tr']//td[1]")
 
             # log-in
             sleep(0.5)
-            driver.find_element(DriverUtility.By.XPATH, "(//input[@placeholder='手機'])[3]").send_keys(INFO["USER_NAME"])
-            driver.find_element(DriverUtility.By.XPATH, "(//input[@type='password'])[3]").send_keys(INFO["PASSWORDS"])
-            driver.find_element_then_click(DriverUtility.By.NAME, "login")
+            driver.find_element(By.XPATH, "(//input[@placeholder='手機'])[3]").send_keys(INFO["USER_NAME"])
+            driver.find_element(By.XPATH, "(//input[@type='password'])[3]").send_keys(INFO["PASSWORDS"])
+            driver.find_element_then_click(By.NAME, "login")
             sleep(0.5)
 
             # for the warning window (change password notification)
@@ -121,17 +121,17 @@ class Scripts:
             sleep(0.5)
 
             # bottom choose store
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//tr[@class='wk-book-stores list-tr']//td[1]")
+            driver.find_element_then_click(By.XPATH, "//tr[@class='wk-book-stores list-tr']//td[1]")
 
             # choose reservation time
-            order_time_element = driver.find_element(DriverUtility.By.ID, "order_time")
-            DriverUtility.Select(order_time_element).select_by_visible_text(INFO["TIME"])
+            order_time_element = driver.find_element(By.ID, "order_time")
+            Select(order_time_element).select_by_visible_text(INFO["TIME"])
 
             # final: send_reservation
             sleep(0.5)
             driver.send_ScrollDown(4)
             sleep(0.5)
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//button[@type='button']", loop_max=30)
+            driver.find_element_then_click(By.XPATH, "//button[@type='button']", loop_max=30)
             driver.endDriver()
     
     class Paradise(Scripts_default):
@@ -180,30 +180,30 @@ class Scripts:
 
             # click pop-up notification
             sleep(0.5)
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//div[@id='modal-news']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]")
+            driver.find_element_then_click(By.XPATH, "//div[@id='modal-news']/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]")
 
             # fill-in imformation
-            driver.find_element_then_click(DriverUtility.By.ID, "select_area")
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//li[text()='"+INFO["CITY"]+"']")
-            driver.find_element(DriverUtility.By.ID, "book_people").send_keys(INFO["PEOPLE"])
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//input[contains(@class,'flatpickr flatpickr-input')]")
+            driver.find_element_then_click(By.ID, "select_area")
+            driver.find_element_then_click(By.XPATH, "//li[text()='"+INFO["CITY"]+"']")
+            driver.find_element(By.ID, "book_people").send_keys(INFO["PEOPLE"])
+            driver.find_element_then_click(By.XPATH, "//input[contains(@class,'flatpickr flatpickr-input')]")
             sleep(0.5)
             if INFO["NEXT_MONTH"]:
-                driver.find_element_then_click(DriverUtility.By.CLASS_NAME, "flatpickr-next-month")
+                driver.find_element_then_click(By.CLASS_NAME, "flatpickr-next-month")
             sleep(0.5)
-            driver.find_element_then_click(DriverUtility.By.XPATH, "(//span[text()='"+INFO["DATE"]+"'])[2]")
-            driver.find_element_then_click(DriverUtility.By.CLASS_NAME, "wk-type-dinner")
+            driver.find_element_then_click(By.XPATH, "(//span[text()='"+INFO["DATE"]+"'])[2]")
+            driver.find_element_then_click(By.CLASS_NAME, "wk-type-dinner")
 
             # bottom choose store
             driver.send_ScrollDown()
             driver.send_ScrollDown()
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//span[@class='cell-store']")
+            driver.find_element_then_click(By.XPATH, "//span[@class='cell-store']")
 
             # log-in
             sleep(0.5)
-            driver.find_element(DriverUtility.By.XPATH, "(//input[@placeholder='手機'])[3]").send_keys(INFO["USER_NAME"])
-            driver.find_element(DriverUtility.By.XPATH, "(//input[@type='password'])[3]").send_keys(INFO["PASSWORDS"])
-            driver.find_element_then_click(DriverUtility.By.NAME, "login")
+            driver.find_element(By.XPATH, "(//input[@placeholder='手機'])[3]").send_keys(INFO["USER_NAME"])
+            driver.find_element(By.XPATH, "(//input[@type='password'])[3]").send_keys(INFO["PASSWORDS"])
+            driver.find_element_then_click(By.NAME, "login")
             sleep(0.5)
 
             # for the warning window (change password notification)
@@ -215,17 +215,17 @@ class Scripts:
             sleep(0.5)
 
             # bottom choose store
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//span[@class='cell-store']")
+            driver.find_element_then_click(By.XPATH, "//span[@class='cell-store']")
 
             # choose reservation time
-            order_time_element = driver.find_element(DriverUtility.By.ID, "order_time")
-            DriverUtility.Select(order_time_element).select_by_visible_text(INFO["TIME"])
+            order_time_element = driver.find_element(By.ID, "order_time")
+            Select(order_time_element).select_by_visible_text(INFO["TIME"])
 
             # final: send_reservation
             sleep(0.5)
             driver.send_ScrollDown(4)
             sleep(0.5)
-            driver.find_element_then_click(DriverUtility.By.XPATH, "//button[@type='button']", loop_max=30)
+            driver.find_element_then_click(By.XPATH, "//button[@type='button']", loop_max=30)
             driver.endDriver()
         
     class Tea6(Scripts_default):

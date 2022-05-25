@@ -7,12 +7,10 @@ from time import sleep
 from StringProcess import setw
 
 #### importing class "By" and "Select" ####
-class DriverUtility():
-    class By(By):
-        pass
-        
-    class Select(Select):
-        pass
+class By(By):
+    pass
+class Select(Select):
+    pass
 
 #### DriverSetup ####
 class DriverSetup(Chrome):
