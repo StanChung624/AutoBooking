@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from time import sleep
+from StringProcess import setw
 
 #### importing class "By" and "Select" ####
 class DriverUtility():
@@ -30,9 +31,15 @@ class DriverSetup(Chrome):
         self = super().__init__(options=options)
 
     def endDriver(self):
+        end_msg = 'Driver end in 5 second...'
+        for i in range(5,0,-1):
+            print('Driver end in '+str(i)+' second...'+'\r'*len(end_msg),end='')
+            sleep(1)
+        print('')
         print('*'*51)
-        print('** Auto fill-in completed. **')    
+        print(setw('* Auto fill-in completed. *',51,'mid'))
         print('*'*51+'\n')
+
 
     def send_ScrollDown(self, times:int=1):
         for i in range(times):
