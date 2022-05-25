@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------#
-# example:      饗食天堂
+# example:      饗饗
 # -----------------------------------------------------------------------------#
-from ReservationScripts.Scripts import Paradise
+from ReservationScripts.Scripts import InParadise
 
 # input area
 # -----------------------------------------------------------------------------#
@@ -11,8 +11,10 @@ INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
             "USER_NAME" : "0900000000", # user name
             "PASSWORDS" : "00000000",   # password
             "PEOPLE"    : "2",          # reservation seat(s)
-            "CITY"      : "新竹市"      # restuarant location
+            "CITY"      : "台北市",      # restuarant location
+            "BRANCH"    : "微風店",      # full-name of the branch-store
+            "MEALTIME"  : "午餐",        # 午餐/下午餐/晚餐
         }
 # script start
 # -----------------------------------------------------------------------------#
-Paradise(INFO, start_when="2022-05-25_00:00")
+InParadise(INFO, start_when="2022-05-25_00:00")

@@ -1,18 +1,18 @@
 from .template import Scripts_default
 from DriverSetup import *
 
-class Sunrise(Scripts_default):
+class InParadise(Scripts_default):
     """
-        旭集
+        饗饗
                 tested on chrome v.100 / at 2022.05.25
     Auto run with set scripts.
-
+    
     Parameters
     ----------
-        INFO : dict 
+        -INFO : dict 
             refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
 
-        start_when : str
+        -start_when : str
             in the format of "YYYY-mm-dd_HH:MM"
     """
     REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
@@ -21,12 +21,12 @@ class Sunrise(Scripts_default):
                         "USER_NAME" : "0912345678", # user name
                         "PASSWORDS" : "abc12345",   # password
                         "PEOPLE"    : "2",          # reservation seat(s)
-                        "CITY"      : "新竹縣",      # restuarant location
-                        "BRANCH"    : "旭集竹北店",
-                        "MEALTIME"  : "晚餐/午餐/下午餐",
+                        "CITY"      : "台北市",      # restuarant location
+                        "BRANCH"    : "微風店",
+                        "MEALTIME"  : "晚餐/午餐/下午餐"
                     }
     INFO = None
-    URL = "https://www.feastogether.com.tw/booking/10"
+    URL = "https://www.feastogether.com.tw/booking/2"
 
     def __init__(self, INFO:dict={}, start_when=False):
         self.luancher(INFO, start_when)
@@ -66,6 +66,7 @@ class Sunrise(Scripts_default):
             driver.find_element_then_click(By.CLASS_NAME, "flatpickr-next-month")
         sleep(0.5)
         driver.find_element_then_click(By.XPATH, "(//span[text()='"+INFO["DATE"]+"'])[2]")
+        
         # meal-time
         if INFO['MEALTIME'] == "晚餐":
             driver.find_element_then_click(By.CLASS_NAME, "wk-type-dinner")
@@ -96,7 +97,7 @@ class Sunrise(Scripts_default):
 
         # bottom choose store
         driver.find_element_then_click(By.XPATH, "//span[text()='"+self.INFO['BRANCH']+"']")
-        
+
         # choose reservation time
         order_time_element = driver.find_element(By.ID, "order_time")
         Select(order_time_element).select_by_visible_text(INFO["TIME"])
@@ -107,3 +108,4 @@ class Sunrise(Scripts_default):
         sleep(0.5)
         driver.find_element_then_click(By.XPATH, "//button[@type='button']", loop_max=30)
         driver.endDriver()
+    

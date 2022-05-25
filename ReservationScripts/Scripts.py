@@ -79,3 +79,19 @@ class MoMoParadise(MoMoParadise):
         start_when : str
             in the format of "YYYY-mm-dd_HH:MM"
     """
+
+from .script_InParadise import InParadise
+class InParadise(InParadise):
+    """
+        饗饗
+                tested on chrome v.100 / at 2022.05.25
+    Auto run with set scripts.
+    
+    Parameters
+    ----------
+        INFO : dict 
+            refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+        start_when : str
+            in the format of "YYYY-mm-dd_HH:MM"
+    """

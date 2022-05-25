@@ -21,7 +21,9 @@ class Paradise(Scripts_default):
                         "USER_NAME" : "0912345678", # user name
                         "PASSWORDS" : "abc12345",   # password
                         "PEOPLE"    : "2",          # reservation seat(s)
-                        "CITY"      : "新竹市"      # restuarant location
+                        "CITY"      : "新竹市",      # restuarant location
+                        "BRANCH"    : "新竹大遠百店",  # branch
+                        "MEALTIME"  : "晚餐/午餐/下午餐",
                     }
     INFO = None
     URL = "https://www.feastogether.com.tw/booking/1"
@@ -64,12 +66,18 @@ class Paradise(Scripts_default):
             driver.find_element_then_click(By.CLASS_NAME, "flatpickr-next-month")
         sleep(0.5)
         driver.find_element_then_click(By.XPATH, "(//span[text()='"+INFO["DATE"]+"'])[2]")
-        driver.find_element_then_click(By.CLASS_NAME, "wk-type-dinner")
+        # meal-time
+        if INFO['MEALTIME'] == "晚餐":
+            driver.find_element_then_click(By.CLASS_NAME, "wk-type-dinner")
+        elif INFO['MEALTIME'] == "午餐":
+            driver.find_element_then_click(By.XPATH, "//li[@data-mealtime='lunch']")
+        elif INFO['MEALTIME'] == "下午餐":
+            driver.find_element_then_click(By.XPATH, "//li[@data-mealtime='afternoon-tea']")
 
         # bottom choose store
         driver.send_ScrollDown()
         driver.send_ScrollDown()
-        driver.find_element_then_click(By.XPATH, "//span[@class='cell-store']")
+        driver.find_element_then_click(By.XPATH, "//span[text()='"+self.INFO['BRANCH']+"']")
 
         # log-in
         sleep(0.5)
@@ -87,7 +95,7 @@ class Paradise(Scripts_default):
         sleep(0.5)
 
         # bottom choose store
-        driver.find_element_then_click(By.XPATH, "//span[@class='cell-store']")
+        driver.find_element_then_click(By.XPATH, "//span[text()='"+self.INFO['BRANCH']+"']")
 
         # choose reservation time
         order_time_element = driver.find_element(By.ID, "order_time")
