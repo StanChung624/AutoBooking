@@ -2,7 +2,6 @@ from .template import Scripts_default
 from DriverSetup import *
 
 class Tea6(Scripts_default):
-
     INFO = None
     BRANCH_URL =   {    "公益店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LUYUEIOYwa7GCUpAFWA",
                         "朝富店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-L93VSXuz8o86ahWDRg1",

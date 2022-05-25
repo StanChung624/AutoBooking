@@ -16,13 +16,13 @@ class Paradise(Scripts_default):
             in the format of "YYYY-mm-dd_HH:MM"
     """
     REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
-                "DATE"      : "23",         # Date-day
-                "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
-                "USER_NAME" : "0912345678", # user name
-                "PASSWORDS" : "abc12345",   # password
-                "PEOPLE"    : "2",          # reservation seat(s)
-                "CITY"      : "新竹市"      # restuarant location
-            }
+                        "DATE"      : "23",         # Date-day
+                        "TIME"      : "17:30",      # time: 17:00/17:30/18:00/18:30/19:00
+                        "USER_NAME" : "0912345678", # user name
+                        "PASSWORDS" : "abc12345",   # password
+                        "PEOPLE"    : "2",          # reservation seat(s)
+                        "CITY"      : "新竹市"      # restuarant location
+                    }
     INFO = None
     URL = "https://www.feastogether.com.tw/booking/1"
 

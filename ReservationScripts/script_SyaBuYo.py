@@ -2,7 +2,6 @@ from .template import Scripts_default
 from DriverSetup import *
 
 class SyaBuYo(Scripts_default):
-    
     INFO = None
     BRANCH_URL =   {    "新竹SOGO巨城店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS",
                         "欣欣百貨店"    : "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPimPsuYiMGVUKKSBo8",
