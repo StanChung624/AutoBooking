@@ -96,7 +96,7 @@ class Sunrise(Scripts_default):
 
         # bottom choose store
         driver.find_element_then_click(By.XPATH, "//span[text()='"+self.INFO['BRANCH']+"']")
-        
+
         # choose reservation time
         order_time_element = driver.find_element(By.ID, "order_time")
         Select(order_time_element).select_by_visible_text(INFO["TIME"])
