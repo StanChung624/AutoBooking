@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------#
 # example:      Mo-Mo Paradise
 # -----------------------------------------------------------------------------#
-from ReservationScripts.ReservationScript import Scripts
+from ReservationScripts.Scripts import MoMoParadise
 # input area
 # -----------------------------------------------------------------------------#
 INFO = {    "DATE"      : "2022-05-25",
@@ -14,4 +14,4 @@ INFO = {    "DATE"      : "2022-05-25",
 
 # script start
 # -----------------------------------------------------------------------------#
-Scripts.MoMoParadise(INFO, start_when="2022-05-25_08:51")
+MoMoParadise(INFO, start_when="2022-05-25_08:51")

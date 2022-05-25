@@ -28,10 +28,10 @@ class DriverSetup(Chrome):
         options.add_argument("--disable-notifications")
         self = super().__init__(options=options)
 
-    def endDriver(self):
-        end_msg = 'Driver end in 5 second...'
-        for i in range(5,0,-1):
-            print('Driver end in '+str(i)+' second...'+'\r'*len(end_msg),end='')
+    def endDriver(self):        
+        for i in range(10,0,-1):
+            end_msg = 'Driver end in '+str(i)+' second...'
+            print( end_msg + '\r'*len(end_msg), end='')
             sleep(1)
         print('')
         print('*'*51)

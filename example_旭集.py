@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------#
 # example:      旭集
 # -----------------------------------------------------------------------------#
-from ReservationScripts.ReservationScript import Scripts
+from ReservationScripts.Scripts import Sunrise
 
 # input area
 # -----------------------------------------------------------------------------#
@@ -15,4 +15,4 @@ INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
         }
 # script start
 # -----------------------------------------------------------------------------#
-Scripts.Sunrise(INFO, start_when="2022-05-25_00:00")
+Sunrise(INFO, start_when="2022-05-25_00:00")

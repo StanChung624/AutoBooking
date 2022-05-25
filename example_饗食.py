@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------#
 # example:      饗食天堂
 # -----------------------------------------------------------------------------#
-from ReservationScripts.ReservationScript import Scripts
+from ReservationScripts.Scripts import Paradise
 
 # input area
 # -----------------------------------------------------------------------------#
@@ -15,4 +15,4 @@ INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
         }
 # script start
 # -----------------------------------------------------------------------------#
-Scripts.Paradise(INFO, start_when="2022-05-24_10:32")
+Paradise(INFO, start_when="2022-05-25_00:00")
