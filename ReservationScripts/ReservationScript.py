@@ -35,6 +35,7 @@ class Scripts_default:
         
         elapse = time() - tic
         print("elapse time: ", elapse, ' (sec.)')
+    
 # -----------------------------------------------------------------------------#
 # Scripts starts
 # -----------------------------------------------------------------------------#
@@ -45,9 +46,14 @@ class Scripts:
             旭集
                     tested on chrome v.100 / at 2022.05.25
         Auto run with set scripts.
-        :args:
-            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
-            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+
+        Parameters
+        ----------
+            INFO : dict 
+                refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+            start_when : str
+                in the format of "YYYY-mm-dd_HH:MM"
         """
         REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
                             "DATE"      : "23",         # Date-day
@@ -139,9 +145,14 @@ class Scripts:
             饗食天堂
                     tested on chrome v.100 / at 2022.05.25
         Auto run with set scripts.
-        :args:
-            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
-            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        
+        Parameters
+        ----------
+            INFO : dict 
+                refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+            start_when : str
+                in the format of "YYYY-mm-dd_HH:MM"
         """
         REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
                     "DATE"      : "23",         # Date-day
@@ -233,15 +244,21 @@ class Scripts:
             茶六
                     tested on chrome v.100 / at 2022.05.25
         Auto run with set scripts.
-        :args:
-            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
-            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        
+        Parameters
+        ----------
+            INFO : dict 
+                refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+            start_when : str
+                in the format of "YYYY-mm-dd_HH:MM"
         """
         INFO = None
-        BRANCH_URL =   {   "公益店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LUYUEIOYwa7GCUpAFWA",
-                                "朝富店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-L93VSXuz8o86ahWDRg1",
-                                "中清店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-MNhWoTy962xAuCH9tCh"
-                            }
+        BRANCH_URL =   {    "公益店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LUYUEIOYwa7GCUpAFWA",
+                            "朝富店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-L93VSXuz8o86ahWDRg1",
+                            "中清店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-MNhWoTy962xAuCH9tCh",
+                            "博愛店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LAIJeeZ-6rG3IpB1KUE",
+                        }
 
         REQUIRED_INFO =  {  "DATE"      : "2022-06-22",
                             "TIME"      : "11-45",
@@ -303,12 +320,23 @@ class Scripts:
             涮乃葉
                     tested on chrome v.100 / at 2022.05.25
         Auto run with set scripts.
-        :args:
-            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
-            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        
+        Parameters
+        ----------
+            INFO : dict 
+                refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+            start_when : str
+                in the format of "YYYY-mm-dd_HH:MM"
         """
         INFO = None
-        BRANCH_URL =   {   "新竹SOGO巨城店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS", 
+        BRANCH_URL =   {    "新竹SOGO巨城店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS",
+                            "欣欣百貨店"    : "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPimPsuYiMGVUKKSBo8",
+                            "汐止遠雄店"    : "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjTERhMC0ybw5aVUAy",
+                            "統一時代市府店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjTo7xQo-PXZLfp52y",
+                            "板橋中山遠百店（小遠百）": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjUicKloDufblRzW7J",
+                            "桃園台茂店"    : "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjVO9N3lZaaEkDWDl_",
+                            "新竹大魯閣湳雅店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjXHFKw_bM0oQuKt2M",
                        }
 
         REQUIRED_INFO = {   "DATE"      : "2022-06-22",
@@ -316,7 +344,7 @@ class Scripts:
                             "NAME"      : "金城武",
                             "PEOPLE"    : "2",
                             "PHONE"     : "090000000",
-                            "BRANCH"    : "公益店"                            
+                            "BRANCH"    : "新竹SOGO巨城店"                            
                         }
 
         def __init__(self, INFO:dict={}, start_when=False):
@@ -376,12 +404,22 @@ class Scripts:
             Mo-Mo Paradise
                     tested on chrome v.100 / at 2022.05.25
         Auto run with set scripts.
-        :args:
-            -INFO: (dict) object with REQUIRED_INFO, when missing key(s), user will be asked for input.
-            -start_when: (str) in the format of "YYYY-mm-dd_HH:MM"
+        
+        Parameters
+        ----------
+            INFO : dict 
+                refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+            start_when : str
+                in the format of "YYYY-mm-dd_HH:MM"
         """
         INFO = None
-        BRANCH_URL =   {   "新竹巨城牧場": "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LHHPxqdZqtKMq-y25le", 
+        BRANCH_URL =   {    "新竹巨城牧場"  : "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LHHPxqdZqtKMq-y25le", 
+                            "台北京站牧場"  : "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-KlcGro3QpVV0OQ_gRcJ",
+                            "高雄夢時代牧場": "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LJMypNLpzgRz24B6_Wy",
+                            "統一時代牧場"  : "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LLguxO9H24QZ0t7wxtD",
+                            "桃園統領牧場"  : "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LQHpNrnmS7FOAiWsKeq",
+                            "中山牧場"      : "https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LUY7bWeyKt7usH5MFpw",
                        }
 
         REQUIRED_INFO = {   "DATE"      : "2022-06-22",
@@ -407,7 +445,7 @@ class Scripts:
             def check_url():
                 if self.INFO['BRANCH'] not in self.BRANCH_URL:
                     print('current branch url is not in the database, please enter manually:')
-                    print('for example: https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS')
+                    print('for example: https://inline.app/booking/-KlcGro3QpVV0OQ_gRcI:inline-live-humaxasia/-LHHPxqdZqtKMq-y25le')
                     self.BRANCH_URL[self.INFO['BRANCH']] = str(input(':\n'))
 
             check_INFO()
