@@ -2,7 +2,7 @@
 ## For release user 
 * chromedriver ("https://chromedriver.chromium.org/")
 
-For the download link and prescription see [here](https://github.com/StanChung624/AutoBooking/releases/tag/beta).
+For the download link and prescription see [HERE](https://github.com/StanChung624/AutoBooking/releases/tag/beta).
 ## For sourcecode user:
 * chromedriver ("https://chromedriver.chromium.org/")
 * selenium
