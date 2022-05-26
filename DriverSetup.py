@@ -3,6 +3,8 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
 from StringProcess import setw
 
@@ -25,11 +27,11 @@ class DriverSetup(Chrome):
     """
     def __init__(self):
         options = Options()
-        options.add_argument("--disable-notifications")
+        options.add_argument("--log-level=3")
         self = super().__init__(options=options)
 
-    def endDriver(self):        
-        for i in range(10,0,-1):
+    def endDriver(self, wait:float=10):        
+        for i in range(wait,0,-1):
             end_msg = 'Driver end in '+str(i)+' second...'
             print( end_msg + '\r'*len(end_msg), end='')
             sleep(1)
@@ -86,3 +88,16 @@ class DriverSetup(Chrome):
 
         if looper:
             self.find_element(by=by, value=value).click()
+
+    def wait_clickable_then_click(self, by:By, value:str, timeout:float=5):
+
+        method = EC.element_to_be_clickable((by, value))
+        element = WebDriverWait(self, timeout=timeout).until(method=method)
+
+        if not element:
+            self.find_element_then_click(by=by, value=value)
+        else:
+            return False
+        
+            
+

@@ -1,7 +1,7 @@
-from .template import Scripts_default
+from .website_template.Inline import template_Inline
 from DriverSetup import *
 
-class Tea6(Scripts_default):
+class Tea6(template_Inline):
     INFO = None
     BRANCH_URL =   {    "公益店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LUYUEIOYwa7GCUpAFWA",
                         "朝富店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-L93VSXuz8o86ahWDRg1",
@@ -13,6 +13,7 @@ class Tea6(Scripts_default):
                         "TIME"      : "11-45",
                         "NAME"      : "金城武",
                         "PHONE"     : "090000000",
+                        "PEOPLE"    : "2",
                         "BRANCH"    : "公益店"
                     }
     def __init__(self, INFO:dict={}, start_when=False):
@@ -35,31 +36,3 @@ class Tea6(Scripts_default):
         check_INFO()
         check_url()
 
-    def run(self):
-        INFO = self.INFO
-        # script start
-        # -----------------------------------------------------------------------------#
-        # open webpage
-        driver = DriverSetup()
-        
-        driver.get(self.BRANCH_URL[INFO["BRANCH"]])
-        sleep(0.5)
-        driver.maximize_window()
-
-        # fill-in date
-        driver.find_element_then_click(By.XPATH, "//div[@class='sc-dJjYzT kxiniR']")
-        driver.send_ScrollDown()
-        driver.find_element_then_click(By.XPATH, "//div[@data-date='"+INFO["DATE"]+"']//span[1]")
-        driver.find_element_then_click(By.XPATH, "//button[@data-cy='book-now-time-slot-box-"+INFO["TIME"]+"']")
-
-        # fill-in user info
-        driver.find_element_then_click(By.XPATH, "//span[text()='下一步，填寫聯絡資訊']")
-        sleep(0.5)
-        driver.find_element(By.ID, "name").send_keys(INFO["NAME"])
-        driver.find_element(By.ID, "phone").send_keys(INFO["PHONE"])
-
-        # final
-        driver.find_element_then_click(By.XPATH, "(//label[@class='sc-bqiRlB fCuXci'])[2]")
-        driver.find_element_then_click(By.XPATH, "//button[@class='sc-ieecCq eZhyRr']")
-
-        driver.endDriver()

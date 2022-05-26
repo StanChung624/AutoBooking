@@ -8,6 +8,7 @@ INFO = {    "DATE"      : "2022-06-22",
             "TIME"      : "11-45",
             "NAME"      : "金城武",
             "PHONE"     : "090000000",
+            "PEOPLE"    : "2",
             "BRANCH"    : "公益店"
         }
 # script start

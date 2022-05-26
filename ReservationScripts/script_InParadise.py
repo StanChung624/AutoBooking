@@ -1,8 +1,8 @@
 #from .template import Scripts_default
-from .script_Sunrise import Sunrise # FEAST TOGETHER coop. are alike
+from .website_template.FeastTogether import template_FeastTogether
 from DriverSetup import *
 
-class InParadise(Sunrise):
+class InParadise(template_FeastTogether):
     """
         饗饗
                 tested on chrome v.100 / at 2022.05.25
