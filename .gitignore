@@ -2,3 +2,7 @@ __pycache__/
 temp.py
 DriverSetup.py
 chromedriver.exe
+dist/
+build/
+REQUIRED_INFO.txt
+*.spec

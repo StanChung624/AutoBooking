@@ -20,7 +20,12 @@ class template_Inline(Scripts_default):
         # fill-in date
         driver.find_element_then_click(By.XPATH, "//div[@class='sc-dJjYzT kxiniR']")
         driver.send_ScrollDown()
-        driver.find_element_then_click(By.XPATH, "//div[@data-date='"+INFO["DATE"]+"']//span[1]")
+        # if DATE is unavailable
+        response = driver.wait_clickable_then_click(By.XPATH, "//div[@data-date='"+INFO["DATE"]+"']//span[1]", timeout=5)
+        if not response:
+            self.not_available(driver)
+            return
+            del response
         # if TIME is unavailable
         response = driver.wait_clickable_then_click(By.XPATH, "//button[@data-cy='book-now-time-slot-box-"+INFO["TIME"]+"']", timeout=5)
         if not response:
@@ -42,6 +47,6 @@ class template_Inline(Scripts_default):
         driver.endDriver()
 
     def not_available(self, driver:DriverSetup):
-        print("current time (" + self.INFO['TIME'] + ") or branch-store (" + self.INFO['BRANCH'] + ") is not available.")
+        print("current date ("+ self.INFO['DATE'] +"), time (" + self.INFO['TIME'] + ") or branch-store (" + self.INFO['BRANCH'] + ") is not available.")
         print("session end.")
         driver.quit()
