@@ -4,7 +4,7 @@ from time import sleep
 
 class template_Inline(Scripts_default):
 
-    def run(self):
+    def start(self):
         INFO = self.INFO
         # script start
         # -----------------------------------------------------------------------------#
@@ -21,7 +21,12 @@ class template_Inline(Scripts_default):
         driver.find_element_then_click(By.XPATH, "//div[@class='sc-dJjYzT kxiniR']")
         driver.send_ScrollDown()
         driver.find_element_then_click(By.XPATH, "//div[@data-date='"+INFO["DATE"]+"']//span[1]")
-        driver.find_element_then_click(By.XPATH, "//button[@data-cy='book-now-time-slot-box-"+INFO["TIME"]+"']")
+        # if TIME is unavailable
+        response = driver.wait_clickable_then_click(By.XPATH, "//button[@data-cy='book-now-time-slot-box-"+INFO["TIME"]+"']", timeout=5)
+        if not response:
+            self.not_available(driver)
+            return
+            del response
 
         # fill-in user info
         driver.find_element_then_click(By.XPATH, "//span[text()='下一步，填寫聯絡資訊']")
@@ -35,3 +40,8 @@ class template_Inline(Scripts_default):
         driver.find_element_then_click(By.XPATH, "//button[@class='sc-ieecCq eZhyRr']")
 
         driver.endDriver()
+
+    def not_available(self, driver:DriverSetup):
+        print("current time (" + self.INFO['TIME'] + ") or branch-store (" + self.INFO['BRANCH'] + ") is not available.")
+        print("session end.")
+        driver.quit()

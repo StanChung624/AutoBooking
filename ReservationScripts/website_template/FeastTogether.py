@@ -2,7 +2,7 @@ from ..template import Scripts_default
 from DriverSetup import *
 
 class template_FeastTogether(Scripts_default):
-    def run(self):
+    def start(self):
         INFO = self.INFO
         # script start
         # -----------------------------------------------------------------------------#

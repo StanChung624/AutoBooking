@@ -1,18 +1,18 @@
-from .website_template.FeastTogether import template_FeastTogether
+from ..website_template.FeastTogether import template_FeastTogether
 from DriverSetup import *
 
-class Sunrise(template_FeastTogether):
+class Paradise(template_FeastTogether):
     """
-        旭集
+        饗食天堂
                 tested on chrome v.100 / at 2022.05.25
     Auto run with set scripts.
-
+    
     Parameters
     ----------
-        INFO : dict 
+        -INFO : dict 
             refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
 
-        start_when : str
+        -start_when : str
             in the format of "YYYY-mm-dd_HH:MM"
     """
     REQUIRED_INFO = {   "NEXT_MONTH": True,         # True: next month // False: this month
@@ -21,15 +21,16 @@ class Sunrise(template_FeastTogether):
                         "USER_NAME" : "0912345678", # user name
                         "PASSWORDS" : "abc12345",   # password
                         "PEOPLE"    : "2",          # reservation seat(s)
-                        "CITY"      : "新竹縣",      # restuarant location
-                        "BRANCH"    : "旭集竹北店",
+                        "CITY"      : "新竹市",      # restuarant location
+                        "BRANCH"    : "新竹大遠百店",  # branch
                         "MEALTIME"  : "晚餐/午餐/下午餐",
                     }
     INFO = None
-    URL = "https://www.feastogether.com.tw/booking/10"
+    URL = "https://www.feastogether.com.tw/booking/1"
 
-    def __init__(self, INFO:dict={}, start_when=False):
-        self.luancher(INFO, start_when)
+    # -----------------------------------------------------------------------------#
+    # __init__ and launcher is defined in Script_default.py
+    # -----------------------------------------------------------------------------#
 
     def check_data(self):
         for key in self.REQUIRED_INFO.keys():

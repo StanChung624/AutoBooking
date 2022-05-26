@@ -1,5 +1,4 @@
-#from .template import Scripts_default
-from .website_template.FeastTogether import template_FeastTogether
+from ..website_template.FeastTogether import template_FeastTogether
 from DriverSetup import *
 
 class InParadise(template_FeastTogether):
@@ -29,8 +28,9 @@ class InParadise(template_FeastTogether):
     INFO = None
     URL = "https://www.feastogether.com.tw/booking/2"
 
-    def __init__(self, INFO:dict={}, start_when=False):
-        self.luancher(INFO, start_when)
+    # -----------------------------------------------------------------------------#
+    # __init__ and launcher is defined in Script_default.py
+    # -----------------------------------------------------------------------------#
 
     def check_data(self):
         for key in self.REQUIRED_INFO.keys():

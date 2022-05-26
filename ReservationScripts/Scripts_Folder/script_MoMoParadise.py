@@ -1,4 +1,4 @@
-from .website_template.Inline import template_Inline
+from ..website_template.Inline import template_Inline
 from DriverSetup import *
 
 class MoMoParadise(template_Inline):
@@ -32,8 +32,9 @@ class MoMoParadise(template_Inline):
                         "BRANCH"    : "公益店"                            
                     }
 
-    def __init__(self, INFO:dict={}, start_when=False):
-        self.luancher(INFO, start_when)
+    # -----------------------------------------------------------------------------#
+    # __init__ and launcher is defined in Script_default.py
+    # -----------------------------------------------------------------------------#
 
     def check_data(self):
         def check_INFO():

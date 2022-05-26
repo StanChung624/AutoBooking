@@ -1,7 +1,20 @@
-from .website_template.Inline import template_Inline
+from ..website_template.Inline import template_Inline
 from DriverSetup import *
 
 class Tea6(template_Inline):
+    """
+        茶六
+                tested on chrome v.100 / at 2022.05.25
+    Auto run with set scripts.
+
+    Parameters
+    ----------
+        INFO : dict 
+            refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+        start_when : str
+            in the format of "YYYY-mm-dd_HH:MM"
+    """
     INFO = None
     BRANCH_URL =   {    "公益店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LUYUEIOYwa7GCUpAFWA",
                         "朝富店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-L93VSXuz8o86ahWDRg1",
@@ -9,15 +22,17 @@ class Tea6(template_Inline):
                         "博愛店": "https://inline.app/booking/-L93VSXuz8o86ahWDRg0:inline-live-karuizawa/-LAIJeeZ-6rG3IpB1KUE",
                     }
 
-    REQUIRED_INFO =  {  "DATE"      : "2022-06-22",
+    REQUIRED_INFO =  {  "DATE"      : "2022-05-28",
                         "TIME"      : "11-45",
                         "NAME"      : "金城武",
                         "PHONE"     : "090000000",
                         "PEOPLE"    : "2",
                         "BRANCH"    : "公益店"
                     }
-    def __init__(self, INFO:dict={}, start_when=False):
-        self.luancher(INFO, start_when)
+                    
+    # -----------------------------------------------------------------------------#
+    # __init__ and launcher is defined in Script_default.py
+    # -----------------------------------------------------------------------------#
 
     def check_data(self):
         def check_INFO():

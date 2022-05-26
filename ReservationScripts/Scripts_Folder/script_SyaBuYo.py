@@ -1,8 +1,19 @@
-#from .template import Scripts_default
-#from DriverSetup import *
-from .website_template.Inline import template_Inline
+from ..website_template.Inline import template_Inline
 
 class SyaBuYo(template_Inline):
+    """
+        涮乃葉
+                tested on chrome v.100 / at 2022.05.25
+    Auto run with set scripts.
+
+    Parameters
+    ----------
+        INFO : dict 
+            refer to REQUIRED_INFO as an example. When missing key(s), user will be asked for input.
+
+        start_when : str
+            in the format of "YYYY-mm-dd_HH:MM"
+    """
     INFO = None
     BRANCH_URL =   {    "新竹SOGO巨城店": "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPjWTrlZSINZUYENhhS",
                         "欣欣百貨店"    : "https://inline.app/booking/-LPimPrzunBVFBi0ckJB:inline-live-2a466/-LPimPsuYiMGVUKKSBo8",
@@ -21,8 +32,9 @@ class SyaBuYo(template_Inline):
                         "BRANCH"    : "新竹SOGO巨城店"                            
                     }
 
-    def __init__(self, INFO:dict={}, start_when=False):
-        self.luancher(INFO, start_when)
+    # -----------------------------------------------------------------------------#
+    # __init__ and launcher is defined in Script_default.py
+    # -----------------------------------------------------------------------------#
     
     def check_data(self):
         def check_INFO():

@@ -14,4 +14,4 @@ INFO = {    "DATE"      : "2022-05-25",
 
 # script start
 # -----------------------------------------------------------------------------#
-MoMoParadise(INFO, start_when="2022-05-25_08:51")
+MoMoParadise().run(INFO, start_when="2022-05-25_08:51")

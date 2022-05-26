@@ -17,4 +17,4 @@ INFO = {    "NEXT_MONTH": True,         # True: next month // False: this month
         }
 # script start
 # -----------------------------------------------------------------------------#
-Sunrise(INFO, start_when="2022-05-25_00:00")
+Sunrise().run(INFO, start_when="2022-05-25_00:00")
