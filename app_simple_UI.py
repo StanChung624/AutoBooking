@@ -40,7 +40,7 @@ crawler.read_info()
 # start when
 # -----------------------------------------------------------------------------#
 print('When should it begin to crawl? in the format of YYYY-mm-dd_HH:mm (ex. 2022-06-24_20:20)')
-print(' or press Enter to start immediately.')
+print('(Press Enter to start immediately.)')
 start_when = str(input(":"))
 if start_when == '':
     crawler.run()
