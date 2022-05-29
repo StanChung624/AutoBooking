@@ -8,6 +8,7 @@ import json
 class Scripts_default:
 
     def __init__(self):
+        self.INFO = None
         pass
 
     def run(self, INFO:dict={}, start_when=False):
