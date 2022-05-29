@@ -1,6 +1,4 @@
 from selenium.webdriver import Chrome
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,10 +7,8 @@ from time import sleep
 from StringProcess import setw
 
 #### importing class "By" and "Select" ####
-class By(By):
-    pass
-class Select(Select):
-    pass
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.common.by import By
 
 #### DriverSetup ####
 class DriverSetup(Chrome):
@@ -99,5 +95,43 @@ class DriverSetup(Chrome):
         else:
             return False
         
-            
+    def wait_find_element(self, by:By, value:str, timeout:float=7):            
+        looper = True
+        time = 0
+        while looper:
+            if time > timeout:
+                break
+            try:
+                el = self.find_element(by=by, value=value)
+                if el.is_enabled():
+                    return el
+                else:
+                    pass
+            except:
+                sleep(0.5)
+                time += 0.5
+        raise "can't find element"
+
+    def get_text_excluding_children(self, by:By, value:str, timeout:float=7):
+        looper = True
+        time = 0
+        while looper:
+            if time > timeout:
+                break
+            try:
+                element = self.find_element(by=by , value=value)
+                return self.execute_script("""
+                                            return jQuery(arguments[0]).contents().filter(function() {
+                                                return this.nodeType == Node.TEXT_NODE;
+                                            }).text();
+                                            """, element)
+            except:
+                sleep(0.5)
+                time += 0.5
+        element = self.find_element(by=by , value=value)
+        return self.execute_script("""
+        return jQuery(arguments[0]).contents().filter(function() {
+            return this.nodeType == Node.TEXT_NODE;
+        }).text();
+        """, element)
 
