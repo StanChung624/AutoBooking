@@ -1,11 +1,11 @@
-from utility.TraceReporter import TraceReporter
+from utility.Logger import Logger
 from ..template import Scripts_default
 from utility.DriverSetup import *
 from time import sleep
 
 class template_Inline(Scripts_default):
 
-    def start(self, rd:TraceReporter):
+    def start(self, rd:Logger):
         INFO = self.INFO
         # script start
         # -----------------------------------------------------------------------------#

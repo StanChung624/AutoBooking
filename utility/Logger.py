@@ -2,7 +2,7 @@
 # Simple TraceReporter class
 # ----------------------------------------------------------------------------------- #
 from datetime import datetime
-class TraceReporter:
+class Logger:
     def __init__(self, file_name:str='Reporter', debug_flag:bool=True):
         self.report = ''
         self.file_name = file_name + '_report'

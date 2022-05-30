@@ -2,7 +2,7 @@
 # default scripts __init__ and luancher
 # -----------------------------------------------------------------------------#
 from utility.TimeControl import TimeControl
-from utility.TraceReporter import TraceReporter
+from utility.Logger import Logger
 from time import time
 import json
 
@@ -20,7 +20,7 @@ class Scripts_default:
 
     def luancher(self, INFO, start_when):
         # recorder
-        rd = TraceReporter(file_name=self.__class__.__name__, debug_flag=True)
+        rd = Logger(file_name=self.__class__.__name__, debug_flag=True)
         rd.session_start(self.__class__.__name__+' start', 0, '\n')
 
         # INFO checked
