@@ -107,15 +107,17 @@ class DriverSetup(Chrome):
                 continue
 
         if looper:
-            self.find_element(by=by, value=value).click()
+            return False
+        else:
+            return True
 
     def wait_clickable_then_click(self, by:By, value:str, timeout:float=5):
 
         method = EC.element_to_be_clickable((by, value))
-        element = WebDriverWait(self, timeout=timeout).until(method=method)
-
+        element = WebDriverWait(self, timeout=timeout).until(method=method)        
         if not element:
-            self.find_element_then_click(by=by, value=value)
+            self.find_element_then_click(by=by, value=value)               
+            return True 
         else:
             return False
         

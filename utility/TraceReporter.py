@@ -3,8 +3,9 @@
 # ----------------------------------------------------------------------------------- #
 from datetime import datetime
 class TraceReporter:
-    def __init__(self, debug_flag:bool=False):
+    def __init__(self, file_name:str='Reporter', debug_flag:bool=True):
         self.report = ''
+        self.file_name = file_name + '_report'
         self.debug_flag = debug_flag
 
     def session_start(self, text:str, level:int, end=''):
@@ -28,6 +29,18 @@ class TraceReporter:
             self.report = self.report + msg
             self.dump()
 
+    def print_INFO(self, INFO:dict):
+        if self.debug_flag:
+            msg = 'start of INFO\n'
+            for key in INFO.keys():
+                msg = msg + '\t' + key + ' = ' + str(INFO[key]) + '\n'
+            msg = msg + 'end of INFO\n'
+            print(msg)
+            self.report = self.report + msg
+            self.dump()
+
     def dump(self):
-        with open('TraceReporter.txt', mode='w') as f:
+        with open(self.file_name+'.txt', mode='w') as f:
             f.write(self.report)
+
+    
