@@ -1,5 +1,5 @@
 from ..template import Scripts_default
-from DriverSetup import *
+from utility.DriverSetup import *
 from time import sleep
 
 class template_Inline(Scripts_default):

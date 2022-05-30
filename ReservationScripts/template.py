@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------#
 # default scripts __init__ and luancher
 # -----------------------------------------------------------------------------#
-from TimeControl import TimeControl
+from utility.TimeControl import TimeControl
 from time import time
 import json
 

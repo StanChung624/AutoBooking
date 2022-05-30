@@ -1,5 +1,4 @@
 from ..website_template.Inline import template_Inline
-from DriverSetup import *
 
 class MoMoParadise(template_Inline):
     """

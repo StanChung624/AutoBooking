@@ -1,5 +1,5 @@
 from ..template import Scripts_default
-from DriverSetup import *
+from utility.DriverSetup import *
 
 class template_FeastTogether(Scripts_default):
     def start(self):

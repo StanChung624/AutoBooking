@@ -1,5 +1,4 @@
 from ..website_template.FeastTogether import template_FeastTogether
-from DriverSetup import *
 
 class Sunrise(template_FeastTogether):
     """

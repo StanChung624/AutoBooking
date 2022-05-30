@@ -1,5 +1,4 @@
 from ..website_template.Inline import template_Inline
-from DriverSetup import *
 
 class Tea6(template_Inline):
     """
