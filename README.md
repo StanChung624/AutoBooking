@@ -15,3 +15,6 @@ Download link and instruction see [HERE](https://github.com/StanChung624/AutoBoo
 All `Scripts.run(INFO, start_when)` takes 2 input args:
 * `INFO` a dict object containing required info for chosen restuarant. If there is item missing, the program will ask for input.
 * `start_when` time in the format of "YYYY-mm-dd_HH:MM"
+
+## utility
+  DriverSetup package info is put [HERE](https://github.com/StanChung624/DriverSetup).
