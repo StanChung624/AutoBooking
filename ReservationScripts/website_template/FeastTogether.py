@@ -110,5 +110,4 @@ class template_FeastTogether(Scripts_default):
     def not_available(self, driver:DriverSetup):
         print("current time (" + self.INFO['TIME'] + ") or branch-store (" + self.INFO['BRANCH'] + ") is not available.")
         print("session end.")
-        input()
         driver.quit()
