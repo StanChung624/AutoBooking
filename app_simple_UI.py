@@ -9,7 +9,8 @@ print("\t3: 饗食天堂")
 print("\t4: 茶六")
 print("\t5: 涮乃葉")
 print("\t6: Mo-Mo Paradise")
-selection = str(input("(1-6):"))
+print("\t7: Will's Teppanyaki")
+selection = str(input("(1-7):"))
 # -----------------------------------------------------------------------------#
 # Initiate
 # -----------------------------------------------------------------------------#
@@ -25,6 +26,8 @@ elif selection == "5":
     crawler = SyaBuYo()
 elif selection == "6":
     crawler = MoMoParadise()
+elif selection == "7":
+    crawler = WillsTeppanyaki()
 # -----------------------------------------------------------------------------#
 # dump REQUIREMENT_INFO.txt for editing
 # -----------------------------------------------------------------------------#

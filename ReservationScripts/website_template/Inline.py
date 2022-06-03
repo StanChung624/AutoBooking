@@ -34,7 +34,7 @@ class template_Inline(Scripts_default):
         log.session_start('click date', 2)
         response = driver.find_element_then_click(By.XPATH, "//div[@data-date='"+INFO["DATE"]+"']//span[1]")
         if not response:
-            log.session_start('info date is not available', 1, '\n')
+            log.session_start('info DATE is not available', 1, '\n')
             self.not_available(driver)
             return
         log.session_end()
@@ -42,7 +42,7 @@ class template_Inline(Scripts_default):
         log.session_start('click time', 2)
         response = driver.find_element_then_click(By.XPATH, "//button[@data-cy='book-now-time-slot-box-"+INFO["TIME"]+"']")
         if not response:
-            log.session_start('info date is not available', 1, '\n')
+            log.session_start('info TIME is not available', 1, '\n')
             self.not_available(driver)
             return
         log.session_end()
