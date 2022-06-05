@@ -79,9 +79,15 @@ class template_Inline(Scripts_default):
 
         fill_people()
 
+        driver.save_screenshot('screenshot\\'+self.now()+'_fill_people.png')
+
         click_calender()
 
+        driver.save_screenshot('screenshot\\'+self.now()+'_click_cal.png')
+
         is_click_date_succeeded = click_date()
+
+        driver.save_screenshot('screenshot\\'+self.now()+'_click_date.png')
 
         if not is_click_date_succeeded:
             driver.save_screenshot(self.__class__.__name__+self.now()+'click_date_error.png')
@@ -90,12 +96,16 @@ class template_Inline(Scripts_default):
         
         is_click_time_succeeded = click_time()
 
+        driver.save_screenshot('screenshot\\'+self.now()+'_click_time.png')
+
         if not is_click_time_succeeded:
             driver.save_screenshot(self.__class__.__name__+self.now()+'click_time_error.png')
             self.not_available(driver)
             return False
 
         click_next_step()
+
+        driver.save_screenshot('screenshot\\'+self.now()+'_click_next_step.png')
 
         final_check_box_and_send()
 

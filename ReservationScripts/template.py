@@ -102,7 +102,7 @@ class Scripts_default:
     # utility
     # -----------------------------------------------------------------------------#
     def now(self):
-        return datetime.now().strftime('[%H:%M:%S]')
+        return datetime.now().strftime('[%H_%M_%S]')
 
     
     # -----------------------------------------------------------------------------#

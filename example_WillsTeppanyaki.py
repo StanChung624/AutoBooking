@@ -4,12 +4,12 @@
 from ReservationScripts.Scripts import WillsTeppanyaki
 # input area
 # -----------------------------------------------------------------------------#
-INFO = {    "DATE"      : "2022-06-18",
-            "TIME"      : ["12-00", "18-00"],
-            "NAME"      : "鍾OO",
+INFO = {    "DATE"      : "2022-06-19",
+            "TIME"      : ["18-30", "18-00", "19-00"],
+            "NAME"      : "鍾OX",
             "PHONE"     : "0900000000",
             "PEOPLE"    : "2",            
         }
 # script start
 # -----------------------------------------------------------------------------#
-WillsTeppanyaki().run(INFO, start_when="2022-06-04_23:59:58") 
+WillsTeppanyaki().run(INFO, start_when="2022-06-05_23:59:59") 
