@@ -52,3 +52,6 @@ class MoMoParadise(template_Inline):
 
         check_INFO()
         check_url()
+        
+        # set url
+        self.URL = self.BRANCH_URL[self.INFO["BRANCH"]]

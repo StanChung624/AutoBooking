@@ -25,12 +25,14 @@ class TimeControl:
             ::
                 TimeControl.start_when("2022-06-24_09:00")
         """
-        proceed =  datetime.now() > pd.to_datetime(start_time, format='%Y-%m-%d_%H:%M')
+        if len(start_time) == 16:
+            start_time += ':00'
+        proceed =  datetime.now() > pd.to_datetime(start_time, format='%Y-%m-%d_%H:%M:%S')
         printer = TimeControl_printer()
         printer.print_wait(start_time)        
 
         while not proceed:
-            proceed =  datetime.now() > pd.to_datetime(start_time, format='%Y-%m-%d_%H:%M')            
+            proceed =  datetime.now() > pd.to_datetime(start_time, format='%Y-%m-%d_%H:%M:%S')
             if proceed:
                 pass
             else:

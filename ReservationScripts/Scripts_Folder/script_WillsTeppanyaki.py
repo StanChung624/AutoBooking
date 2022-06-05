@@ -16,9 +16,9 @@ class WillsTeppanyaki(template_Inline):
     """
     INFO = None
 
-    url = "https://inline.app/booking/-MlIX9yWDwI6MUkexSdA:inline-live-2/-MlIXA7xzJCN7mVDVBjA"
+    URL = "https://inline.app/booking/-MlIX9yWDwI6MUkexSdA:inline-live-2/-MlIXA7xzJCN7mVDVBjA"
 
-    REQUIRED_INFO =  {  "DATE"      : "2022-05-28",
+    REQUIRED_INFO =  {  "DATE"      : "2022-06-28",
                         "TIME"      : "11-45",
                         "NAME"      : "金城武",
                         "PHONE"     : "090000000",

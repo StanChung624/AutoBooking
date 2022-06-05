@@ -3,5 +3,5 @@ temp.py
 chromedriver.exe
 dist/
 build/
-REQUIRED_INFO.txt
 *.spec
+*.txt

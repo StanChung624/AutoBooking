@@ -4,9 +4,9 @@
 from ReservationScripts.Scripts import SyaBuYo
 # input area
 # -----------------------------------------------------------------------------#
-INFO = {    "DATE"      : "2022-06-22",
-            "TIME"      : "17-15",
-            "NAME"      : "金城武",
+INFO = {    "DATE"      : "2022-06-23",
+            "TIME"      : "11-30",
+            "NAME"      : "鍾XO",
             "PEOPLE"    : "2",
             "PHONE"     : "0900000000",
             "BRANCH"    : "新竹SOGO巨城店",
@@ -14,4 +14,4 @@ INFO = {    "DATE"      : "2022-06-22",
 
 # script start
 # -----------------------------------------------------------------------------#
-SyaBuYo().run(INFO, start_when="2022-05-24_20:02")
+SyaBuYo().run(INFO, start_when="2022-06-04_16:35:45")

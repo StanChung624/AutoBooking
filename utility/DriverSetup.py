@@ -27,7 +27,7 @@ class DriverSetup(Chrome):
         options.add_argument("--log-level=3")
         self = super().__init__(options=options)
 
-    def endDriver(self, wait:float=10):        
+    def endDriver(self, wait:int=10):        
         for i in range(wait,0,-1):
             end_msg = 'Driver end in '+str(i)+' second...'
             print( end_msg + '\r'*len(end_msg), end='')
@@ -73,7 +73,7 @@ class DriverSetup(Chrome):
         body = self.find_element_by_css_selector('body')
         body.send_keys(Keys.ALT, Keys.RIGHT)
 
-    def find_element_then_click(self, by:By, value:str, sleep_time:float = 0.5, loop_max:int = 10, response:bool=True):
+    def find_element_then_click(self, by:By, value:str, sleep_time:float = 0.5, loop_max:int = 10, response:bool=True, power_click:bool=True):
         loop_index = 0
         looper = True
         # attemp-session
@@ -83,9 +83,10 @@ class DriverSetup(Chrome):
         except:
             try:
                 sleep(0.5)
-                element = self.find_element(by=by, value=value)
-                self.execute_script("arguments[0].click();", element)
-                looper = False
+                if power_click:
+                    element = self.find_element(by=by, value=value)
+                    self.execute_script("arguments[0].click();", element)
+                    looper = False
             except:
                 pass        
         # loop-session
@@ -163,5 +164,3 @@ class DriverSetup(Chrome):
             return this.nodeType == Node.TEXT_NODE;
         }).text();
         """, element)
-
-    

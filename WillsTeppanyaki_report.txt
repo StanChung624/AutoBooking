@@ -1,0 +1,26 @@
+[20:35:43] - WillsTeppanyaki start 
+start of INFO
+	DATE = 2022-06-18
+	TIME = ['12-00', '18-00']
+	NAME = ¡È¥ºµæ
+	PHONE = 0918490808
+	PEOPLE = 2
+end of INFO
+[20:35:43] - wait until 2022-06-04_23:59:58 
+[23:59:58] - finish start_when ...done
+[23:59:58]	 - run on multiple reservation time 
+[23:59:58]	 - time = 12-00 
+[00:00:00]	 - get webpage ...done
+[00:00:02]		 - select people ...done
+[00:00:03]		 - click calender ...done
+[00:00:04]		 - click date ...done
+[00:00:06]		 - click time ...done
+[00:00:11]	 - info TIME is not available 
+[00:00:15]	 - time = 18-00 
+[00:00:16]	 - get webpage ...done
+[00:00:17]		 - select people ...done
+[00:00:18]		 - click calender ...done
+[00:00:20]		 - click date ...done
+[00:00:22]		 - click time ...done
+[00:00:27]	 - info TIME is not available 
+[00:00:31] - elapse time:    32.9272 (sec.) 
