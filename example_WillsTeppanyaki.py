@@ -7,7 +7,7 @@ from ReservationScripts.Scripts import WillsTeppanyaki
 INFO = {    "DATE"      : "2022-06-19",
             "TIME"      : ["18-30", "18-00", "19-00"],
             "NAME"      : "鍾OX",
-            "PHONE"     : "0900000000",
+            "PHONE"     : "0900000000=",
             "PEOPLE"    : "2",            
         }
 # script start
