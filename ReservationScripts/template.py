@@ -19,6 +19,7 @@ class Scripts_default:
     # -----------------------------------------------------------------------------#
     def __init__(self):
         self.INFO = None
+        log = None
         pass
 
     def run(self, INFO:dict=None, start_when=False, intensive_mode=False):
@@ -45,44 +46,44 @@ class Scripts_default:
         """
 
         # initialize logger
-        log = Logger(file_name=self.__class__.__name__, debug_flag=True)
-        log.title(self.__class__.__name__+' start', 0)
+        self.log = Logger(file_name=self.__class__.__name__, debug_flag=True)
+        self.log.title(self.__class__.__name__+' start', 0)
 
         # INFO checked
         self.INFO = INFO
         self.check_data()
-        log.print_INFO(INFO)
+        self.log.print_INFO(INFO)
 
         # wait until given start_when
         if start_when:
-            log.title('wait until '+start_when, 0)
+            self.log.title('wait until '+start_when, 0)
             TimeControl.start_when(start_when)
-            log.session_start('finish start_when', 0, output_print=False)
-            log.session_end()
+            self.log.session_start('finish start_when', 0, output_print=False)
+            self.log.session_end()
 
         # timer - start
         tic = time()
         
         # For single reservation time:        
         if isinstance(INFO["TIME"], str):
-            log.title('run on single reservation time = '+INFO["TIME"],1, '\n')
-            self.start(log=log)            
+            self.log.title('run on single reservation time = '+INFO["TIME"],1, '\n')
+            self.start()
 
         # For multiple reservation time:
         elif isinstance(INFO["TIME"], list):
-            log.title('run on multiple reservation time' ,1, '\n')
+            self.log.title('run on multiple reservation time' ,1, '\n')
             TIME_LIST = INFO["TIME"]
             for i in range(len(TIME_LIST)):
                 INFO["TIME"] = TIME_LIST[i]
-                log.title('time = '+INFO["TIME"] ,1, '\n')
+                self.log.title('time = '+INFO["TIME"] ,1, '\n')
                 try:
-                    self.start(log=log)
+                    self.start()
                 except:
                     continue
         
         elapse = time() - tic
         print("elapse time: ", elapse, ' (sec.)')
-        log.title("elapse time: " + "{:10.4f}".format(elapse) + ' (sec.)', 0, '\n')
+        self.log.title("elapse time: " + "{:10.4f}".format(elapse) + ' (sec.)', 0, '\n')
 
     def dump_required_info(self):
         """
