@@ -148,7 +148,7 @@ class template_FeastTogether(Scripts_default):
         send_reservation()
 
         sleep(1)
-        driver.save_screenshot('screenshot\\'+self.now()+'_final.png')
+        driver.save_screenshot(self.__class__.__name__+self.now()+'_final.png')
         driver.endDriver()
 
         return True
