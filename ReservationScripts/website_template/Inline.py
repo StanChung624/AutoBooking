@@ -99,7 +99,7 @@ class template_Inline(Scripts_default):
 
         final_check_box_and_send()
 
-        sleep(1)
+        sleep(2)
         driver.save_screenshot(self.__class__.__name__+self.now()+'_final.png')
         driver.endDriver()
         
