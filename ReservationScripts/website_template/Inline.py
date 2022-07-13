@@ -81,21 +81,30 @@ class template_Inline(Scripts_default):
 
         click_calender()
 
-        is_click_date_succeeded = click_date()
-
-        if not is_click_date_succeeded:
+        try:
+            click_date()
+        except:
+            driver.send_ScrollDown()
             driver.save_screenshot(self.__class__.__name__+self.now()+'click_date_error.png')
+            self.log.title('screen shot saved.')
             self.not_available(driver)
             return False
         
-        is_click_time_succeeded = click_time()
-
-        if not is_click_time_succeeded:
+        try:
+            click_time()
+        except:
+            driver.send_ScrollDown()
             driver.save_screenshot(self.__class__.__name__+self.now()+'click_time_error.png')
+            self.log.title('screen shot saved.')
             self.not_available(driver)
             return False
 
-        click_next_step()
+        try:
+            click_next_step()
+        except:            
+            driver.send_ScrollDown()
+            driver.save_screenshot(self.__class__.__name__+self.now()+'click_nextstep_error.png')
+            self.log.title('screen shot saved.')
 
         final_check_box_and_send()
 

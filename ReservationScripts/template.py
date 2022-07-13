@@ -46,7 +46,7 @@ class Scripts_default:
         """
 
         # initialize logger
-        self.log = Logger(file_name=self.__class__.__name__, debug_flag=True)
+        self.log = Logger(file_name=self.__class__.__name__+"_"+self.now(), debug_flag=True)
         self.log.title(self.__class__.__name__+' start', 0)
 
         # INFO checked
