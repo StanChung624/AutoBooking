@@ -7,7 +7,7 @@ from ReservationScripts.Scripts import Tea6
 INFO = {    "DATE"      : "2022-07-19",
             "TIME"      : "17-30",
             "NAME"      : "鍾OX",
-            "PHONE"     : "0975723986",
+            "PHONE"     : "0912345678",
             "PEOPLE"    : "2",
             "BRANCH"    : "朝富店"
         }
