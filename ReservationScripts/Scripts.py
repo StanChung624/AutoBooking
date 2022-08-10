@@ -11,3 +11,4 @@ from .Scripts_Folder.script_Tea6 import Tea6
 from .Scripts_Folder.script_SyaBuYo import SyaBuYo
 from .Scripts_Folder.script_MoMoParadise import MoMoParadise
 from .Scripts_Folder.script_WillsTeppanyaki import WillsTeppanyaki
+from .Scripts_Folder.script_XiangLa import XianLa

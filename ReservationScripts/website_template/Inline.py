@@ -17,13 +17,13 @@ class template_Inline(Scripts_default):
 
         def fill_people():
             self.log.session_start('select people', 2)
-            element = driver.wait_find_element(By.XPATH, "//select[@class='sc-dJjYzT kxiniR']")
+            element = driver.wait_find_element(By.ID, "adult-picker")
             Select(element).select_by_index(int(INFO['PEOPLE']))
             self.log.session_end()
 
         def click_calender():
             self.log.session_start('click calender', 2)
-            driver.find_element_then_click(By.XPATH, "//div[@class='sc-dJjYzT kxiniR']")
+            driver.find_element_then_click(By.ID, "date-picker")
             self.log.session_end()
             driver.send_ScrollDown()
 
