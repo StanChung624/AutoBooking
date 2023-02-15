@@ -47,7 +47,7 @@ class DriverSetup(Chrome):
         -times(int) : send multiple times.
         """
         for i in range(times):
-            body = self.find_element_by_css_selector('body')
+            body = self.find_element(By.CSS_SELECTOR, 'body')
             body.send_keys(Keys.PAGE_DOWN)
 
     def send_End(self, times:int=1):
@@ -58,19 +58,19 @@ class DriverSetup(Chrome):
 
         -times(int) : send multiple times.
         """
-        body = self.find_element_by_css_selector('body')
+        body = self.find_element(By.CSS_SELECTOR, 'body')
         body.send_keys(Keys.END)
 
     def send_Enter(self):
-        body = self.find_element_by_css_selector('body')
+        body = self.find_element(By.CSS_SELECTOR, 'body')
         body.send_keys(Keys.ENTER)
 
     def send_Left_Alt(self):
-        body = self.find_element_by_css_selector('body')
+        body = self.find_element(By.CSS_SELECTOR, 'body')
         body.send_keys(Keys.ALT, Keys.LEFT)
 
     def send_Right_Alt(self):
-        body = self.find_element_by_css_selector('body')
+        body = self.find_element(By.CSS_SELECTOR, 'body')
         body.send_keys(Keys.ALT, Keys.RIGHT)
 
     def find_element_then_click(self, by:By, value:str, sleep_time:float = 0.5, loop_max:int = 10, response:bool=True, power_click:bool=True):
